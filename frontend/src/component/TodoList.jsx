@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from "react";
 import TodoForm from "./TodoForm";
+import Todo from "./Todo";
 import * as PropTypes from "prop-types";
 
 export default TodoList
-
-function Todo(props) {
-    return null;
-}
 
 Todo.propTypes = {
     completetodo: PropTypes.func,
