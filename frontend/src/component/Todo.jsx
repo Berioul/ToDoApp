@@ -7,7 +7,7 @@ export default function Todo({todos, completeTodo, removeTodo}) {
     });
     return todos.map((todo, index) => (
         <div
-            className={todo.isComplte ? 'todo-row complete' : 'todo-row'}
+            className={todo.done ? 'todo-row complete' : 'todo-row'}
             key={index}
         >
             <div key={todo.id} onClick={() => completeTodo(todo.id)}>
@@ -15,7 +15,7 @@ export default function Todo({todos, completeTodo, removeTodo}) {
             </div>
             <div className='icons'>
                 <button onClick={() => removeTodo(todo.id)} className='delete-icon'>Löschen</button>
-                <button onClick={() => setEdit({id: todo.id, value: todo.text})} className='edit-icon'>Edit</button>
+                <button onClick={() => setEdit({id: todo.id, value: todo.title})} className='edit-icon'>Edit</button>
             </div>
         </div>
 
