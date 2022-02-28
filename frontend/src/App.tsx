@@ -1,11 +1,12 @@
 import React from 'react';
-import TodoForm from "./component/TodoForm";
-import TodoList from "./component/TodoList"
+import TodoList from "./TodoList";
+
 function App() {
 
     return (
-        <div className='todo-app'>
-          <TodoList/>
+        <div>
+            <h1 className='titre'>All i need to travel</h1>
+            <TodoList/>
         </div>
     );
 }
