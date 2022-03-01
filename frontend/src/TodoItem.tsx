@@ -1,4 +1,4 @@
-import { Todo} from "./model";
+import {Todo} from "./model";
 import './TodoItem.css'
 
 interface TodoItemProps {
@@ -29,7 +29,9 @@ export default function TodoItem(props: TodoItemProps) {
         <div>
             <div className={props.todo.done ? 'selected' : ''}
                  onClick={toggle}>{props.todo.title} </div>
-            <button className='touche effacer' onClick={deleteTodo}>Löschen</button>
+            <div className={props.todo.done ? 'selected' : ''}
+                 onClick={toggle}>{props.todo.beschreibung} </div>
+            <button className={props.todo.done ? 'selected-button' : ''} onClick={deleteTodo}>Effacer</button>
         </div>
     )
 

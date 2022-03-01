@@ -1,6 +1,5 @@
 import { useState } from "react"
-import { Todo } from "./model";
-
+import './TodoForm.css'
 interface TodoFromProps {
     onTodoCreation: () => void;
 
@@ -17,7 +16,7 @@ export default function TodoForm(props: TodoFromProps) {
             headers: {
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify({title:task})
+            body: JSON.stringify({title:task,beschreibung:description})
         })
 
             .then(()=> props.onTodoCreation())
@@ -25,9 +24,8 @@ export default function TodoForm(props: TodoFromProps) {
 
     return (
         <div>
-            <input type="text" placeholder="Aufgabe" value={task} onChange={ev => setTask(ev.target.value)}/>
-            <input type="text" placeholder="Beschreibung" value={description}
-                   onChange={ev => setDescription(ev.target.value)}/>
+            <input className='aufgabe' type="text" placeholder="Aufgabe" value={task} onChange={ev => setTask(ev.target.value)}/>
+            <input className='aufgabe' type="text" placeholder="Beschreibung" value={description} onChange={ev => setDescription(ev.target.value)}/>
             <button onClick={addTask}>ajouter</button>
         </div>
     )

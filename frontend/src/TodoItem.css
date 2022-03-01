@@ -1,4 +1,13 @@
 .selected{
+
+
     text-align: center;
-    text-decoration: red line-through;
+}
+body{
+    background-color: gray;
+}
+.selected-button:hover{
+background-color: blueviolet;
+    color: red;
+ ;
 }
