@@ -1,13 +1,11 @@
 .selected{
-
-
     text-align: center;
 }
 body{
     background-color: gray;
 }
 .selected-button:hover{
-background-color: blueviolet;
-    color: red;
+background-color: red;
+    color: black;
  ;
 }

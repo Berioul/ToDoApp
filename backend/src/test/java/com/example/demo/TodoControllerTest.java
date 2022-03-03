@@ -13,10 +13,10 @@ class TodoControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void integrationTest(){
-        Item Bonbon = new Item("bonbon",890);
-        Item Bonbon1 = new Item("bonbon1",8901);
-        Item Bonbon2 = new Item("bonbon2",8902);
+    void returnAllItemsTest(){
+        Item Bonbon = new Item("bonbon","890","chocolat");
+        Item Bonbon1 = new Item("bonbon1","8901","lait");
+        Item Bonbon2 = new Item("bonbon2","8902","menthe");
 
         restTemplate.postForEntity("/todo",Bonbon1,Void.class);
         restTemplate.postForEntity("/todo",Bonbon2,Void.class);
@@ -25,6 +25,9 @@ class TodoControllerTest {
         assertTrue(loulou.length == 3);
 
     }
+
+
+
 
 
 

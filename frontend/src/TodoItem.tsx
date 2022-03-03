@@ -32,6 +32,7 @@ export default function TodoItem(props: TodoItemProps) {
             <div className={props.todo.done ? 'selected' : ''}
                  onClick={toggle}>{props.todo.beschreibung} </div>
             <button className={props.todo.done ? 'selected-button' : ''} onClick={deleteTodo}>Effacer</button>
+
         </div>
     )
 

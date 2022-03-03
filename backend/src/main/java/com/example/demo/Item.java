@@ -1,20 +1,31 @@
 package com.example.demo;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Item {
+    private String beschreibung;
     private String title;
-    private int id;
+    private String id = UUID.randomUUID().toString();
     private boolean done;
 
 
-    public Item(String title, int id) {
+    public Item(String title, String id,String beschreibung) {
         this.title = title;
         this.id = id;
+        this.beschreibung = beschreibung;
         done = false;
     }
 
     public Item() {
+    }
+
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
     }
 
     public String getTitle() {
@@ -25,11 +36,11 @@ public class Item {
         this.title = title;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

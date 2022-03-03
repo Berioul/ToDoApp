@@ -20,7 +20,7 @@ public class TodoService {
         return todoRepo.getAllItems();
     }
 
-    public Item needItem(int id) {
+    public Item needItem(String id) {
         return todoRepo.getItem(id);
     }
 
@@ -28,11 +28,11 @@ public class TodoService {
         todoRepo.saveItem(itemToAdd);
     }
 
-    public void deleteItem(int id) {
+    public void deleteItem(String id) {
         todoRepo.deletItem(id);
     }
 
-    public void complitItem(int id) {
+    public void complitItem(String id) {
         Item item = todoRepo.getItem(id);
         item.setDone(true);
 

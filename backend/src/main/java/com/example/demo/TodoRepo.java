@@ -17,9 +17,9 @@ public class TodoRepo {
         return allItems;
     }
 
-    public Item getItem(int id) {
+    public Item getItem(String id) {
         return allItems.stream()
-                .filter(item -> item.getId()==id)
+                .filter(item -> item.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
@@ -28,8 +28,8 @@ public class TodoRepo {
         allItems.add(itemToAdd);
     }
 
-    public void deletItem(int id) {
-        allItems.removeIf(item -> item.getId()==id);
+    public void deletItem(String id) {
+        allItems.removeIf(item -> item.getId().equals(id));
 
     }
 }

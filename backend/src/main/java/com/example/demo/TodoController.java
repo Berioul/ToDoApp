@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/todo")
-@CrossOrigin
 public class TodoController {
 
     private final TodoService todoService;
@@ -22,7 +22,7 @@ public class TodoController {
     }
 
     @GetMapping("/{id}")
-    public Item needItem(@PathVariable int id) {
+    public Item needItem(@PathVariable String id) {
 
         return todoService.needItem(id);
     }
@@ -33,13 +33,14 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteItem(@PathVariable int id) {
+    public void deleteItem(@PathVariable String id) {
         todoService.deleteItem(id);
     }
 
     @PutMapping("/{id}")
-    public void itemDone(@PathVariable int id){
+    public void itemDone(@PathVariable String id) {
         todoService.complitItem(id);
 
     }
+
 }
