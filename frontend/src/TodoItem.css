@@ -1,11 +1,14 @@
 .selected{
-    text-align: center;
+    margin-left: 200px;
+    text-decoration:line-through red ;
 }
 body{
-    background-color: gray;
+    border: solid black 5px;
+    background-color: orange;
 }
-.selected-button:hover{
-background-color: red;
-    color: black;
- ;
+.selected-button{
+
+    margin-left: 200px;
+
 }
+

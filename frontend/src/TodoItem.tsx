@@ -1,5 +1,6 @@
 import {Todo} from "./model";
 import './TodoItem.css'
+import {Link} from "react-router-dom";
 
 interface TodoItemProps {
     todo: Todo
@@ -10,7 +11,7 @@ interface TodoItemProps {
 export default function TodoItem(props: TodoItemProps) {
 
     const deleteTodo = () => {
-        fetch(`http://localhost:8090/todo/${props.todo.id}`, {
+        fetch(`${process.env.REACT_APP_BASE_URL}/todo/${props.todo.id}`, {
             method: 'DELETE'
         })
             .then(() => props.onTodoDeletion());
@@ -18,7 +19,8 @@ export default function TodoItem(props: TodoItemProps) {
 
     const toggle = () => {
 
-        fetch(`http://localhost:8090/todo/${props.todo.id}`, {
+
+        fetch(`${process.env.REACT_APP_BASE_URL}/todo/${props.todo.id}`, {
             method: 'PUT',
 
         })
@@ -26,13 +28,11 @@ export default function TodoItem(props: TodoItemProps) {
     }
 
     return (
-        <div>
-            <div className={props.todo.done ? 'selected' : ''}
+        <div >
+            <div data-testid='the-todo' className={props.todo.done ? 'selected' : ''}
                  onClick={toggle}>{props.todo.title} </div>
-            <div className={props.todo.done ? 'selected' : ''}
-                 onClick={toggle}>{props.todo.beschreibung} </div>
             <button className={props.todo.done ? 'selected-button' : ''} onClick={deleteTodo}>Effacer</button>
-
+            <Link to={'/Todolist/'+ props.todo.id}>beschreibungs</Link>
         </div>
     )
 

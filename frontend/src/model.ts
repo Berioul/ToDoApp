@@ -5,4 +5,3 @@ export interface Todo {
     beschreibung:string;
 
 }
-

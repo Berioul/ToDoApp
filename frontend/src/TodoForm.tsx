@@ -1,32 +1,45 @@
-import { useState } from "react"
+import {useEffect, useState} from "react"
 import './TodoForm.css'
-interface TodoFromProps {
-    onTodoCreation: () => void;
+import {useTranslation} from "react-i18next";
 
+interface TodoFormProps {
+    onTodoCreation: () => void;
 }
 
-export default function TodoForm(props: TodoFromProps) {
+export default function TodoForm(props: TodoFormProps) {
 
-    const [task, setTask] = useState('');
-    const [description, setDescription] = useState('');
+    const [task, setTask] = useState(localStorage.getItem('Aufgabe') ?? '');
+    const [description, setDescription] = useState(localStorage.getItem('Beschreibung') ?? '');
+    const {t} = useTranslation();
 
+    useEffect(() => {
+        localStorage.setItem('Aufgabe', task)
+        localStorage.setItem('Beschreibung', description)
+    }, [task, description])
     const addTask = () => {
-        fetch('http://localhost:8090/todo', {
+        fetch(`${process.env.REACT_APP_BASE_URL}/todo`, {
             method: 'POST',
             headers: {
-                'Content-Type':'application/json'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({title:task,beschreibung:description})
+            body: JSON.stringify({title: task, beschreibung: description})
         })
 
-            .then(()=> props.onTodoCreation())
+            .then(() => {
+                props.onTodoCreation()
+                setTask('')
+                setDescription('')
+            })
     }
 
     return (
         <div>
-            <input className='aufgabe' type="text" placeholder="Aufgabe" value={task} onChange={ev => setTask(ev.target.value)}/>
-            <input className='aufgabe' type="text" placeholder="Beschreibung" value={description} onChange={ev => setDescription(ev.target.value)}/>
+            <input className='aufgabe' type="text" placeholder={t("task")} value={task}
+                   onChange={ev => setTask(ev.target.value)}/>
+            <input className='aufgabe' type="text" placeholder={t("description")} value={description}
+                   onChange={ev => setDescription(ev.target.value)}/>
             <button onClick={addTask}>ajouter</button>
         </div>
     )
+
 }
