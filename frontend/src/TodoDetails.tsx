@@ -11,7 +11,7 @@ export default function TodoDetails(){
         fetch('http://localhost:8090/todo/'+ params.TodoId)
             .then(response => response.json())
             .then((todo:Todo)=>setTodo(todo))
-    },[]);
+    },[params.TodoId]);
       return(
 
           <div>
