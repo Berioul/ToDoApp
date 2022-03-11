@@ -8,7 +8,7 @@ export default function TodoDetails(){
       const params = useParams()
 
     useEffect(()=> {
-        fetch('http://localhost:8090/todo/'+ params.TodoId)
+        fetch(`${process.env.REACT_APP_BASE_URL}/todo/`+ params.TodoId)
             .then(response => response.json())
             .then((todo:Todo)=>setTodo(todo))
     },[params.TodoId]);
