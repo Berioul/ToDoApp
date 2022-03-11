@@ -7,6 +7,7 @@ import java.util.List;
 
 
 @Service
+
 public class TodoService {
 
     private TodoRepo todoRepo;
@@ -17,24 +18,24 @@ public class TodoService {
 
 
     public List<Item> needallitems() {
-        return todoRepo.getAllItems();
+        return todoRepo.findAll();
     }
 
     public Item needItem(String id) {
-        return todoRepo.getItem(id);
+        return todoRepo.findById(id).orElse(null);
     }
 
     public void addThisItem(Item itemToAdd) {
-        todoRepo.saveItem(itemToAdd);
+        todoRepo.save(itemToAdd);
     }
 
     public void deleteItem(String id) {
-        todoRepo.deletItem(id);
+        todoRepo.deleteById(id);
     }
 
     public void complitItem(String id) {
-        Item item = todoRepo.getItem(id);
-        item.setDone(true);
+         todoRepo.findById(id).ifPresent(item -> item.setDone(true));
+
 
     }
 }
