@@ -1,10 +1,10 @@
-/*.selected{
+.selected{
     margin-left: 200px;
     text-decoration:line-through red ;
 }
 body{
     border: solid black 5px;
-    background-color: orange;
+    background-color: npne;
 }
 .selected-button{
 
@@ -12,5 +12,5 @@ body{
 
 }
 
- */
+
 
