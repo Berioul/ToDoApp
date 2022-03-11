@@ -8,7 +8,7 @@ function App() {
 
     return (
         <div>
-            <h1 className="title">All i need to travel</h1>
+            <h1>All i need to travel</h1>
 
             <BrowserRouter>
 
