@@ -34,7 +34,10 @@ public class TodoService {
     }
 
     public void complitItem(String id) {
-         todoRepo.findById(id).ifPresent(item -> item.setDone(true));
+        todoRepo.findById(id).ifPresent(item -> {
+            item.setDone(true);
+             todoRepo.save(item);
+        });
 
 
     }
