@@ -8,7 +8,7 @@ function App() {
 
     return (
         <div>
-            <h1>Ma Todolist de Voyage </h1>
+            <h1 className="title">Ma Todolist </h1>
 
             <BrowserRouter>
 
