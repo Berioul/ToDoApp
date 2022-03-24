@@ -20,7 +20,9 @@ export default function TodoForm(props: TodoFormProps) {
         fetch(`${process.env.REACT_APP_BASE_URL}/todo`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+
             },
             body: JSON.stringify({title: task, beschreibung: description})
         })
@@ -38,7 +40,7 @@ export default function TodoForm(props: TodoFormProps) {
                    onChange={ev => setTask(ev.target.value)}/>
             <input className='aufgabe' type="text" placeholder={t("description")} value={description}
                    onChange={ev => setDescription(ev.target.value)}/>
-            <button onClick={addTask}>ajouter</button>
+            <button onClick={addTask}>Add</button>
         </div>
     )
 

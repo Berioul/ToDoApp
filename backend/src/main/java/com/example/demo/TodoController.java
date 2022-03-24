@@ -2,18 +2,18 @@ package com.example.demo;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/todo")
+@RequiredArgsConstructor
 public class TodoController {
 
     private final TodoService todoService;
 
-    public TodoController(TodoService todoService) {
-        this.todoService = todoService;
-    }
+
 
     @GetMapping
     private List<Item> getallItems() {
