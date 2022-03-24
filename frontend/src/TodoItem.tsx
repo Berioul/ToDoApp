@@ -12,7 +12,10 @@ export default function TodoItem(props: TodoItemProps) {
 
     const deleteTodo = () => {
         fetch(`${process.env.REACT_APP_BASE_URL}/todo/${props.todo.id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers:{
+                'Authorization':`Bearer ${localStorage.getItem('token')}`
+            }
         })
             .then(() => props.onTodoDeletion());
     };
