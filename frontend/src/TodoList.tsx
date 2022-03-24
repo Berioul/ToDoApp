@@ -2,11 +2,12 @@ import {useEffect, useState} from "react"
 import {Todo} from "./model";
 import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
+import {useNavigate} from "react-router-dom";
 
 export default function TodoList() {
 
     const [todos, setTodos] = useState([] as Array<Todo>);
-
+    const navigate = useNavigate();
 
     const fetchAll = () => {
         fetch(`${process.env.REACT_APP_BASE_URL}/todo`, {
@@ -22,7 +23,12 @@ export default function TodoList() {
             .then(data => setTodos(data))
     }
     useEffect(() => {
-        fetchAll();
+        if(localStorage.getItem('token')){
+            fetchAll();
+        }else {
+            navigate('/login')
+        }
+
     }, []);
 
     return (

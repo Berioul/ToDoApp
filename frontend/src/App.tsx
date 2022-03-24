@@ -11,7 +11,7 @@ function App() {
     // @ts-ignore
     return (
         <div>
-            <h1>Ma Todolist </h1>
+            <h1 className="title">Ma Todolist </h1>
             <BrowserRouter>
                 <Routes>
                     <Route path={'/'} element={<Login/>}/>

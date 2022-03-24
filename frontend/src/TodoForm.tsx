@@ -35,7 +35,7 @@ export default function TodoForm(props: TodoFormProps) {
     }
 
     return (
-        <div>
+        <div className='forms'>
             <input className='aufgabe' type="text" placeholder={t("task")} value={task}
                    onChange={ev => setTask(ev.target.value)}/>
             <input className='aufgabe' type="text" placeholder={t("description")} value={description}

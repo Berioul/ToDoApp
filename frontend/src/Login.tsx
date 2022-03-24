@@ -26,7 +26,7 @@ export default function Login() {
 
 
     return (
-        <div>
+        <div className="login">
 
             <input className='login' type="email" placeholder={"email"} value={email}
                    onChange={ev => setEmail(ev.target.value)}/>

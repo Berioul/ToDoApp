@@ -25,6 +25,9 @@ export default function TodoItem(props: TodoItemProps) {
 
         fetch(`${process.env.REACT_APP_BASE_URL}/todo/${props.todo.id}`, {
             method: 'PUT',
+            headers:{
+                'Authorization':`Bearer ${localStorage.getItem('token')}`
+            }
 
         })
             .then(() => props.onTodoDeletion());
