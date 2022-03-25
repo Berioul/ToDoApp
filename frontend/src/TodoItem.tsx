@@ -1,6 +1,7 @@
 import {Todo} from "./model";
 import './TodoItem.css'
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 interface TodoItemProps {
     todo: Todo
@@ -13,8 +14,8 @@ export default function TodoItem(props: TodoItemProps) {
     const deleteTodo = () => {
         fetch(`${process.env.REACT_APP_BASE_URL}/todo/${props.todo.id}`, {
             method: 'DELETE',
-            headers:{
-                'Authorization':`Bearer ${localStorage.getItem('token')}`
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         })
             .then(() => props.onTodoDeletion());
@@ -25,8 +26,8 @@ export default function TodoItem(props: TodoItemProps) {
 
         fetch(`${process.env.REACT_APP_BASE_URL}/todo/${props.todo.id}`, {
             method: 'PUT',
-            headers:{
-                'Authorization':`Bearer ${localStorage.getItem('token')}`
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
 
         })
@@ -34,12 +35,11 @@ export default function TodoItem(props: TodoItemProps) {
     }
 
     return (
-        <div >
-            <div data-testid='the-todo' className={props.todo.done ? 'selected' : ''}
-                 onClick={toggle}>{props.todo.title} </div>
-            <button className={props.todo.done ? 'selected-button' : ''} onClick={deleteTodo}>Effacer</button>
-            <Link to={'/Todolist/'+ props.todo.id}>beschreibungs</Link>
-        </div>
+            <div>
+                <label><input type='radio' className={props.todo.done ? 'selected' : ''} onClick={toggle}/></label>
+                <div data-testid='the-todo' className={props.todo.done ? 'selected' : ''} onClick={toggle}>{props.todo.title} </div>
+                <button className={props.todo.done ? 'selected-button' : ''} onClick={deleteTodo}>delete</button>
+                <Link className='linkDescription' to={'/Todolist/' + props.todo.id}>description</Link>
+            </div>
     )
-
 }

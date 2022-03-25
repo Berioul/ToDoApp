@@ -42,5 +42,10 @@ public class TodoController {
         todoService.complitItem(id);
 
     }
+    @PutMapping
+    public void changeItem(@PathVariable String id,@RequestBody Item item){
+        todoService.changeItem(id,item);
+
+    }
 
 }

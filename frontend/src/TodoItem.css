@@ -1,15 +1,39 @@
-.selected{
-    margin-left: 200px;
-    text-decoration:line-through red ;
+/*.selected{
+     display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
+
+ */
+
+
+
+
 body{
     border: solid black 3px;
     background-color: cadetblue;
 }
+
+/*
 .selected-button{
 
     margin-left: 200px;
 
+}
+
+ */
+.linkDescription{
+    margin-left: 10px;
+    color: black;
+    text-decoration: underline;
 }
 
 

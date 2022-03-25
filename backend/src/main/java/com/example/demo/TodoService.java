@@ -41,4 +41,12 @@ public class TodoService {
 
 
     }
+
+    public void changeItem(String id, Item changedItem) {
+        Item item = todoRepo.findById(id).orElseThrow();
+
+        item.setBeschreibung(changedItem.getBeschreibung());
+
+        todoRepo.save(item);
+    }
 }
